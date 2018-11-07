@@ -75,7 +75,6 @@ public class TicTacToeGUI extends JFrame { // Deklarasjoner.
         JButton knapp = new JButton();
         // For å fikse knappen (X'ene og O'ene):
         knapp.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 100));
-        knapp.setForeground(Color.BLUE);
         brett[i][j] = knapp;
         knapp.addActionListener(new ActionListener() {
 
@@ -85,6 +84,13 @@ public class TicTacToeGUI extends JFrame { // Deklarasjoner.
             if(((JButton)e.getSource()).getText().equals("") &&
             harVunnet == false) {
               knapp.setText(spiller);
+              // Endre farge basert på spiller. 
+              if(spiller.equals("X")) {
+                knapp.setForeground(Color.BLUE);
+              }
+              else if (spiller.equals("O")) {
+                knapp.setForeground(Color.RED);
+              }
               harVunnet();
               velgeSpiller();
             }
